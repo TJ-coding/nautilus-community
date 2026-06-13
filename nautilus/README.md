@@ -1,69 +1,157 @@
-# nautilus
+# Nautilus Agent
 
-This template should help get you started developing with Vue 3 in Vite.
+> Landing page for **Nautilus** — an open-source AI co-pilot built for scientific research. Forked from the Hermes Agent core and wrapped with a domain layer for labs, not just laptops.
 
-## Recommended IDE Setup
+[![Vue](https://img.shields.io/badge/Vue-3.5-42b883?logo=vue.js&logoColor=fff)](https://vuejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.0-646cff?logo=vite&logoColor=fff)](https://vitejs.dev/)
+[![Vitest](https://img.shields.io/badge/Vitest-4.1-6e9f18?logo=vitest&logoColor=fff)](https://vitest.dev/)
+[![Playwright](https://img.shields.io/badge/Playwright-1.59-2ead33?logo=playwright&logoColor=fff)](https://playwright.dev/)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Recommended Browser Setup
+## What it is
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+This repository hosts the marketing landing page for the Nautilus Agent project. It features a golden-ratio particle canvas animation, a terminal install section, feature cards, and a "How it works" walkthrough.
 
-## Customize configuration
+## Quick start
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### Prerequisites
 
-## Project Setup
+- **Node.js** `^20.19.0` or `>=22.12.0` (run `node -v` to check)
+- **npm** (comes with Node)
 
-```sh
+### Install dependencies
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development server
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+Open [http://localhost:5173](http://localhost:5173) (default Vite port).
 
-```sh
+> Hot Module Replacement (HMR) is enabled — edit any `.vue` or `.css` file and see changes instantly.
+
+
+## Build
+
+```bash
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Produces the production bundle in `dist/`. You can preview it locally with:
 
-```sh
-npm run test:unit
+```bash
+npm run preview
 ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+This starts a static server on [http://localhost:4173](http://localhost:4173).
 
-```sh
-# Install browsers for the first run
+
+## Project structure
+
+```
+.
+├── e2e/                   # Playwright end-to-end tests
+├── public/                # Static assets (favicon, etc.)
+├── src/
+│   ├── assets/            # Images, CSS resets & global styles
+│   ├── router/            # Vue Router definitions
+│   ├── stores/            # Pinia stores (reactive global state)
+│   ├── views/             # Page-level Vue components
+│   ├── App.vue            # Root component
+│   └── main.js            # Entry point — mounts Vue, wires Pinia + router
+├── index.html             # HTML entry point
+├── vite.config.js         # Vite bundler config
+├── vitest.config.js       # Unit test config (Vite + jsdom)
+├── playwright.config.js   # E2E test config (3 browsers, auto-starts dev server)
+├── package.json
+└── README.md
+```
+
+
+## Testing
+
+### Unit tests (Vitest)
+
+```bash
+# Run once
+npm run test:unit
+
+# Run in watch mode (re-runs on file changes)
+npm run test:unit -- --watch
+```
+
+Tests live next to the code they test (e.g. `Component.spec.js` beside `Component.vue`).
+
+### End-to-end tests (Playwright)
+
+```bash
+# First run only — install browser binaries
 npx playwright install
 
-# When testing on CI, must build the project first
-npm run build
-
-# Runs the end-to-end tests
+# Run E2E tests (auto-starts the dev server)
 npm run test:e2e
-# Runs the tests only on Chromium
+
+# Run against a single browser
 npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
+
+# Run a specific test file
+npm run test:e2e -- e2e/vue.spec.js
+
+# Debug mode (opens headed browser + inspector)
 npm run test:e2e -- --debug
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Playwright is configured to test against **Chromium, Firefox, and WebKit** on desktop. It auto-starts the Vite dev server and will reuse an already-running server if you have `npm run dev` going.
 
-```sh
+> **CI tip:** Set `CI=true` to run tests in headless mode with 2 retries, 1 worker, and against the preview server (static build on port 4173).
+
+
+## Lint & format
+
+```bash
+# Lint with Oxlint + ESLint, and auto-fix where possible
 npm run lint
+
+# Lint only
+npm run lint:oxlint
+npm run lint:eslint
+
+# Format with Prettier
+npm run format
 ```
+
+| Tool        | Purpose                                         | Config |
+|-------------|-------------------------------------------------|--------|
+| **Oxlint**  | Ultra-fast JS/TS linter                         | `.oxlintrc.json` |
+| **ESLint**  | Full lint rules (Vue, Prettier, Vitest, Playwright) | `eslint.config.js` |
+| **Prettier**| Code formatting                                 | `.prettierrc.json` |
+
+
+## Tech stack
+
+- [Vue 3](https://vuejs.org/) — Composition API (`<script setup>`)
+- [Vue Router](https://router.vuejs.org/) — SPA routing
+- [Pinia](https://pinia.vuejs.org/) — State management
+- [Vite](https://vitejs.dev/) — Next-gen build tool & dev server
+- [Vitest](https://vitest.dev/) + jsdom — Unit testing
+- [Playwright](https://playwright.dev/) — Cross-browser E2E testing
+- ESLint / Oxlint / Prettier — Code quality
+
+
+## Deploy
+
+The `dist/` folder produced by `npm run build` is a fully static site (single `index.html` + hashed assets). You can deploy it anywhere:
+
+- **Vercel / Netlify / Render** — drop the `dist/` folder or connect the repo for auto-deploy on push.
+- **GitHub Pages** — use an Action to run `npm run build` and push `dist/` to `gh-pages`.
+- **Nginx / Caddy / S3** — serve `dist/` as a static directory.
+
+
+## License
+
+MIT — Nautilus is a community fork of Hermes Agent. Built for science, by scientists.

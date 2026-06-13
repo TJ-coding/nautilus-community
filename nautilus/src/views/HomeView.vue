@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import logoPNG from '@/assets/logo.png'
 
 const canvasRef = ref(null)
 
@@ -149,11 +150,12 @@ const navLinks = [
     <nav class="navbar">
       <div class="nav-inner">
         <a href="#" class="brand">
-          <span class="brand-icon">🐚</span>
+          <img :src="logoPNG" alt="" class="brand-logo" />
           <span class="brand-text">Nautilus</span>
         </a>
         <div class="nav-links">
           <a v-for="link in navLinks" :key="link.label" :href="link.href" class="nav-link">{{ link.label }}</a>
+          <a href="https://discord.gg/xcmypJtY" target="_blank" rel="noopener noreferrer" class="nav-discord">Discord</a>
           <a href="#install" class="nav-cta">Get Started</a>
         </div>
       </div>
@@ -163,15 +165,14 @@ const navLinks = [
     <section class="hero">
       <canvas ref="canvasRef" class="hero-canvas"></canvas>
       <div class="hero-content">
-        <div class="hero-badge">Hermes Agent fork · Research native</div>
+        <div class="hero-badge">Hermes Agent Fork</div>
         <h1 class="hero-title">
-          Your AI Co-Pilot<br>
-          <span class="accent">for Science</span>
+          Your AI Co-Pilot for Science<br>
+          <span class="accent">Batteries Included</span>
         </h1>
         <p class="hero-subtitle">
-          One-click install. Automated literature reviews. Protocol generation.
-          Instrument integration. Nautilus is the open-source agent built for labs,
-          not just laptops.
+          One-click setup for literature reviews, idea generation,
+  coding, and experiments.
         </p>
         <div class="hero-cta-row">
           <a href="#install" class="btn btn-primary">One-Click Install</a>
@@ -273,6 +274,21 @@ const navLinks = [
       </div>
     </section>
 
+    <!-- Discord community -->
+    <section class="discord-section">
+      <div class="discord-inner">
+        <img :src="logoPNG" alt="" class="discord-logo" />
+        <h2 class="discord-title">Join the community</h2>
+        <p class="discord-subtitle">
+          Talk to other scientists and developers building with Nautilus.
+          Get help, share protocols, and shape the roadmap.
+        </p>
+        <a href="https://discord.gg/xcmypJtY" target="_blank" rel="noopener noreferrer" class="btn btn-primary discord-btn">
+          Join Discord
+        </a>
+      </div>
+    </section>
+
     <!-- CTA block -->
     <section class="cta-section">
       <h2 class="cta-title">Dive in — the ocean of data awaits</h2>
@@ -287,13 +303,13 @@ const navLinks = [
     <footer class="footer">
       <div class="footer-inner">
         <div class="footer-brand">
-          <span class="brand-icon">🐚</span>
+          <img :src="logoPNG" alt="" class="footer-logo" />
           <span class="brand-text">Nautilus Agent</span>
         </div>
         <div class="footer-links">
           <a href="#">Documentation</a>
           <a href="#">GitHub</a>
-          <a href="#">Discord</a>
+          <a href="https://discord.gg/xcmypJtY" target="_blank" rel="noopener noreferrer">Discord</a>
           <a href="#">Roadmap</a>
         </div>
         <p class="footer-copy">Nautilus is a community fork of Hermes Agent. Built for science, by scientists.</p>
@@ -336,7 +352,6 @@ const navLinks = [
   color: #f0fdfa;
   text-decoration: none;
 }
-.brand-icon { font-size: 1.4rem; }
 .brand-text { letter-spacing: -0.02em; }
 .nav-links {
   display: flex;
@@ -362,6 +377,22 @@ const navLinks = [
   transition: opacity 0.2s;
 }
 .nav-cta:hover { opacity: 0.85; color: #0b1426; }
+.nav-discord {
+  background: transparent;
+  color: #2dd4bf;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid rgba(45, 212, 191, 0.35);
+}
+.nav-discord:hover {
+  background: rgba(45, 212, 191, 0.1);
+  border-color: rgba(45, 212, 191, 0.6);
+  color: #5eead4;
+}
 
 /* Hero */
 .hero {
@@ -665,7 +696,49 @@ const navLinks = [
   font-size: 1.05rem;
 }
 
+/* Discord */
+.discord-section {
+  padding: 5rem 1.5rem;
+  text-align: center;
+  background: rgba(45, 212, 191, 0.03);
+  border-top: 1px solid rgba(45, 212, 191, 0.08);
+  border-bottom: 1px solid rgba(45, 212, 191, 0.08);
+}
+.discord-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.discord-logo {
+  height: 48px;
+  width: auto;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 4px;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  margin-bottom: 1rem;
+}
+.discord-title {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  color: #f0fdfa;
+  margin-bottom: 0.5rem;
+  font-family: 'Jost', sans-serif;
+}
+.discord-subtitle {
+  color: #94a3b8;
+  margin-bottom: 1.75rem;
+  font-size: 1.05rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.discord-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* Footer */
+
 .footer {
   padding: 3rem 1.5rem;
   border-top: 1px solid rgba(45, 212, 191, 0.08);
@@ -703,6 +776,26 @@ const navLinks = [
 .footer-copy {
   color: #475569;
   font-size: 0.8rem;
+}
+
+/* Logo images */
+.brand-logo {
+  height: 1.55rem;
+  width: auto;
+  border-radius: 7px;
+  display: block;
+  background: #0f172a;
+  padding: 1px;
+  border: 1px solid rgba(45, 212, 191, 0.25);
+}
+.footer-logo {
+  height: 1.35rem;
+  width: auto;
+  border-radius: 5px;
+  display: block;
+  background: #0f172a;
+  padding: 1px;
+  border: 1px solid rgba(45, 212, 191, 0.2);
 }
 
 @media (max-width: 640px) {
