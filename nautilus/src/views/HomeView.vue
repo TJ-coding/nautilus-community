@@ -140,7 +140,7 @@ const features = [
 
 const navLinks = [
   { label: 'Docs', href: '#' },
-  { label: 'GitHub', href: '#' },
+  { label: 'GitHub', href: 'https://github.com/TJ-coding/nautilus-agent#' },
   { label: 'Changelog', href: '#' },
 ]
 </script>
@@ -151,7 +151,7 @@ const navLinks = [
       <div class="nav-inner">
         <a href="#" class="brand">
           <img :src="logoPNG" alt="" class="brand-logo" />
-          <span class="brand-text">Nautilus</span>
+          <span class="brand-text">Nautilus-Agent</span>
         </a>
         <div class="nav-links">
           <a v-for="link in navLinks" :key="link.label" :href="link.href" class="nav-link">{{ link.label }}</a>
@@ -308,7 +308,7 @@ const navLinks = [
         </div>
         <div class="footer-links">
           <a href="#">Documentation</a>
-          <a href="#">GitHub</a>
+          <a href="https://github.com/TJ-coding/nautilus-agent#" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://discord.gg/xcmypJtY" target="_blank" rel="noopener noreferrer">Discord</a>
           <a href="#">Roadmap</a>
         </div>
