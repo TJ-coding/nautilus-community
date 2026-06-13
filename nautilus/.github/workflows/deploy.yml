@@ -12,9 +12,8 @@ jobs:
       pages: write
       id-token: write
     concurrency:
-      group: "pages"
+      group: pages
       cancel-in-progress: false
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
