@@ -2,7 +2,7 @@
 
 > Landing page for **Nautilus** — an open-source AI co-pilot built for scientific research. Forked from the Hermes Agent core and wrapped with a domain layer for labs, not just laptops.
 
-🌐 **Live site:** [https://tj-coding.github.io/nautilus-agent/](https://tj-coding.github.io/nautilus-agent/)
+🌐 **Live site:** [https://tj-coding.github.io/nautilus-community/](https://tj-coding.github.io/nautilus-community/)
 
 [![Vue](https://img.shields.io/badge/Vue-3.5-42b883?logo=vue.js&logoColor=fff)](https://vuejs.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646cff?logo=vite&logoColor=fff)](https://vitejs.dev/)

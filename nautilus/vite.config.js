@@ -7,7 +7,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/nautilus-agent/',
+  base: '/nautilus-community/',
   plugins: [
     vue(),
     vueJsx(),
