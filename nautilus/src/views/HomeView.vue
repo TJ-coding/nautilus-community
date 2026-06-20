@@ -97,7 +97,7 @@ onMounted(() => {
   }
 })
 
-const installCommand = 'curl -fsSL https://nautilus.dev/install.sh | bash && nautilus setup'
+const installCommand = 'curl -fsSL https://raw.githubusercontent.com/TJ-coding/nautilus-agent/main/scripts/install.sh | bash && nautilus setup'
 const copied = ref(false)
 const copyCommand = () => {
   navigator.clipboard?.writeText(installCommand)
