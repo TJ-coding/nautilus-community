@@ -138,11 +138,6 @@ const features = [
   },
 ]
 
-const navLinks = [
-  { label: 'Docs', href: '#' },
-  { label: 'GitHub', href: 'https://github.com/TJ-coding/nautilus-agent#' },
-  { label: 'Changelog', href: '#' },
-]
 </script>
 <template>
   <div class="landing">
@@ -154,7 +149,10 @@ const navLinks = [
           <span class="brand-text">Nautilus-Agent</span>
         </a>
         <div class="nav-links">
-          <a v-for="link in navLinks" :key="link.label" :href="link.href" class="nav-link">{{ link.label }}</a>
+          <router-link :to="{ name: 'roadmap' }" class="nav-link">Roadmap</router-link>
+          <a href="https://tj-coding.github.io/nautilus-agent/" class="nav-link" target="_blank" rel="noopener noreferrer">Docs</a>
+          <a href="https://github.com/TJ-coding/nautilus-agent#" class="nav-link">GitHub</a>
+          <a href="#" class="nav-link">Changelog</a>
           <a href="https://discord.gg/xcmypJtY" target="_blank" rel="noopener noreferrer" class="nav-discord">Discord</a>
           <a href="#install" class="nav-cta">Get Started</a>
         </div>
@@ -286,6 +284,7 @@ const navLinks = [
         <a href="https://discord.gg/xcmypJtY" target="_blank" rel="noopener noreferrer" class="btn btn-primary discord-btn">
           Join Discord
         </a>
+        
       </div>
     </section>
 
@@ -709,13 +708,13 @@ const navLinks = [
   margin: 0 auto;
 }
 .discord-logo {
-  height: 48px;
+  height: 80px;
   width: auto;
-  border-radius: 12px;
+  border-radius: 16px;
   background: #ffffff;
-  padding: 4px;
-  border: 1px solid rgba(45, 212, 191, 0.3);
-  margin-bottom: 1rem;
+  padding: 5px;
+  border: 2px solid rgba(45, 212, 191, 0.35);
+  margin-bottom: 1.5rem;
 }
 .discord-title {
   font-size: clamp(1.5rem, 4vw, 2.2rem);

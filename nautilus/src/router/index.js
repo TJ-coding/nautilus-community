@@ -9,7 +9,16 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    {
+      path: '/roadmap',
+      name: 'roadmap',
+      component: () => import('../views/RoadmapView.vue'),
+    },
   ],
+  scrollBehavior(_to, _from, savedPosition) {
+    if (savedPosition) return savedPosition
+    return { top: 0 }
+  },
 })
 
 export default router
