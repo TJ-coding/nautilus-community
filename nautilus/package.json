@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run postbuild",
     "preview": "vite preview",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
     "lint": "run-s lint:*",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/"
+    "format": "prettier --write --experimental-cli src/",
+    "postbuild": "node scripts/postbuild.js"
   },
   "dependencies": {
     "pinia": "^3.0.4",
