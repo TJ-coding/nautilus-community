@@ -151,7 +151,7 @@ const features = [
         <div class="nav-links">
           <router-link :to="{ name: 'roadmap' }" class="nav-link">Roadmap</router-link>
           <a href="https://tj-coding.github.io/nautilus-agent/" class="nav-link" target="_blank" rel="noopener noreferrer">Docs</a>
-          <a href="https://github.com/TJ-coding/nautilus-agent#" class="nav-link">GitHub</a>
+          <a href="https://github.com/TJ-coding/nautilus-agent#" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="#" class="nav-link">Changelog</a>
           <a href="https://discord.gg/xcmypJtY" target="_blank" rel="noopener noreferrer" class="nav-discord">Discord</a>
           <a href="#install" class="nav-cta">Get Started</a>
