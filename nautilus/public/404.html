@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nautilus Agent</title>
+  <script type="text/javascript">
+    // Single-page application redirect for GitHub Pages
+    var l = window.location;
+    var pathSegments = l.pathname.split('/').filter(Boolean);
+    var repoIndex = pathSegments.indexOf('nautilus-community');
+    var basePath = '/';
+    if (repoIndex !== -1) {
+      basePath += pathSegments.slice(0, repoIndex + 1).join('/') + '/';
+    }
+    var appPath = l.pathname.replace(basePath, '/');
+    l.replace(basePath + '?redirect=' + encodeURIComponent(appPath + l.search + l.hash));
+  </script>
+</head>
+<body>
+</body>
+</html>
